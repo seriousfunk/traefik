@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:1.6.3
+    command: --api --docker #Enables the web UI and tells Træfik to listen to docker
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" #The Web UI (enabled by --api)
+    networks:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/traefik/traefik.toml:/traefik.toml
+      - /opt/traefik/acme.json:/acme.json
+    container_name: traefik
+    labels:
+      - traefik.frontend.rule=Host:monitor.sendthebricks.com
+      - traefik.port=8080 
+
+networks:
+  proxy:
+    external: true

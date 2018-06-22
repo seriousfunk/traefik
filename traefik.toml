@@ -1,0 +1,38 @@
+debug = true
+
+logLevel = "DEBUG"
+
+defaultEntryPoints = ["http", "https"]
+
+[api]
+address = ":8080"
+  [web.auth.basic]
+  users = ["admin:$apr1$C2TPiPP7$TnuiFqCjgjU3/cLR6poAN1"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+      entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+[retry]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "sendthebricks.com"
+watch = true
+exposedByDefault = false
+
+
+[acme]
+email = "seriousfunk@gmail.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+onDemand = false
+[acme.httpChallenge]
+entryPoint = "http"
+
