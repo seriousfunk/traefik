@@ -8,6 +8,6 @@ traefik template using docker-compose
   
 3. Rename docker-compose_sample.yml to docker-compose.yml
 
-4. Edit **docker-compose.yml** and change monitor.senthebrickscom to your domain (traefik.frontend.rule=Host:monitor.sendthebricks.com)
+4. Edit **docker-compose.yml** and change monitor.senthebricks.com to your domain (traefik.frontend.rule=Host:monitor.sendthebricks.com)
 
 5. Run `docker-compose up -d`
