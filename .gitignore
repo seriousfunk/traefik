@@ -56,3 +56,6 @@ config.json
 ######################
 acme.json
 
+# Application specific
+traefik.toml
+docker-compose.yml

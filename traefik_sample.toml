@@ -6,8 +6,8 @@ defaultEntryPoints = ["http", "https"]
 
 [api]
 address = ":8080"
-  [web.auth.basic]
-  users = ["admin:$apr1$C2TPiPP7$TnuiFqCjgjU3/cLR6poAN1"]
+  [api.auth.basic]
+  users = ["user:password"]
 
 [entryPoints]
   [entryPoints.http]
